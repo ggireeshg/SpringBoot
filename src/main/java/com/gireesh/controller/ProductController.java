@@ -3,9 +3,11 @@ package com.gireesh.controller;
 import com.gireesh.ProductServiceImpl;
 import com.gireesh.response.SuccessResponse;
 import com.gireesh.domain.Product;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.service.annotation.PatchExchange;
 
 import java.util.List;
 
@@ -31,6 +33,22 @@ public class ProductController {
         List<String> productList =  productService.getProductNames();
         return productList.toString();
     }
+
+    // Get a user by ID using @PathVariable
+    @GetMapping("/getProductById/{productId}")
+    @ResponseBody
+    String getProductsByIdPathparam(@PathVariable int productId) {
+        Product product=  productService.getProductById(String.valueOf(productId));
+        return product.toString();
+    }
+
+    @GetMapping("/getProductByName")
+    @ResponseBody
+    String getProductsByIdRequestParam(@RequestParam("product_name") String productId) {
+        Product product=  productService.getProductById(productId);
+        return product.toString();
+    }
+
 
     @GetMapping("/getAllProducts")
     @ResponseBody

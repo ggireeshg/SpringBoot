@@ -1,0 +1,1 @@
+create table product(PRODUCT_ID  int, product_name varchar(50), product_qty int, product_price int);
