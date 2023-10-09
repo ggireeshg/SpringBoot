@@ -1,6 +1,7 @@
 package com.gireesh.controller;
 
 import com.gireesh.ProductServiceImpl;
+import com.gireesh.config.ShoppingCartProperties;
 import com.gireesh.response.SuccessResponse;
 import com.gireesh.domain.Product;
 import jakarta.websocket.server.PathParam;
@@ -56,4 +57,17 @@ public class ProductController {
         List<Product> productList =  productService.getAllProducts();
         return productList.toString();
     }
+
+    @GetMapping("/error")
+    @ResponseBody
+    String errorPage() {
+        List<Product> productList =  productService.getAllProducts();
+        return "This is error page.....";
+    }
+
+//    @GetMapping("/properties")
+//    String getproperties() {
+//        return  shoppingCartProperties.getMessage();
+//    }
+
 }
