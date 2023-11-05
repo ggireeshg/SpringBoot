@@ -1,9 +1,9 @@
 package com.gireesh.controller;
 
-import com.gireesh.ProductServiceImpl;
 import com.gireesh.config.ShoppingCartProperties;
-import com.gireesh.response.SuccessResponse;
 import com.gireesh.domain.Product;
+import com.gireesh.response.SuccessResponse;
+import com.gireesh.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
